@@ -1,0 +1,28 @@
+{
+    "name": "gmo/php_framework",
+    "authors": [
+        {
+            "name": "Maxim Gusakov",
+            "email": "poring.m@mail.ru"
+        }
+    ],
+    "autoload-dev": {
+        "psr-4": {
+            "Gmo\\Framework\\Tests\\": "tests/"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Gmo\\Framework\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "nikic/fast-route": "^1.3",
+        "psr/container": "^2.0@dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.4@dev",
+        "symfony/var-dumper": "7.2.x-dev"
+    }
+}

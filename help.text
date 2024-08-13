@@ -1,0 +1,41 @@
+
+    # -d для detach терминала
+    # docker-compose up -d
+    # docker-compose down -v
+    # docker-compose run composer
+    # docker-compose run composer create
+    # docker-compose run composer create laravel/laravel .
+
+    # docker-compose build
+
+    # docker ps   -посмотреть рабочие контейнеры
+    # docker exec -it <CONTAINER_ID> /bin/sh перейти в командную строку контейнера
+    # docker exec -it f1313d0a4c38 chmod -R 777 /var/www/laravel/storage
+    # docker exec -it f1313d0a4c38 /bin/sh
+    # docker exec -it --user=root <CONTAINER_ID> chmod -R 777 /var/www/laravel/storage   --ругался на права для папки
+    # docker exec php artisan make:migration create_flights_table
+
+docker exec -it php /bin/bash
+
+    # docker exec -it f86e2038d844 php --ini
+    # docker exec -it f86e2038d844 chmod -R 777 /var/www/laravel_activity/storage
+
+#помощь
+#   docker exec -it <CONTAINER_ID> /bin/sh перейти в командную строку контейнера
+#   docker exec -it <CONTAINER_ID> chmod -R 777 /var/www/laravel/storage
+
+#   docker-compose exec php php /var/www/laravel_activity/artisan
+
+
+
+
+composer config --global disable-tls true
+composer config --global secure-http false
+composer config --global repo.packagist composer http://packagist.org
+
+
+composer update --ignore-platform-req=ext-zip --ignore-platform-req=ext-exif
+
+
+docker-compose run --rm composer clear-cache
+docker-compose run --rm composer install
