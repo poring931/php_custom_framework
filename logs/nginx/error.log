@@ -1045,3 +1045,14 @@
 2024/08/13 14:50:23 [notice] 1#1: start worker process 29
 2024/08/13 14:50:23 [notice] 1#1: start worker process 30
 2024/08/13 14:50:23 [notice] 1#1: start worker process 31
+2024/08/14 18:34:30 [warn] 1#1: conflicting server name "localhost" on 0.0.0.0:80, ignored
+2024/08/14 18:34:30 [notice] 1#1: using the "epoll" event method
+2024/08/14 18:34:30 [notice] 1#1: nginx/1.27.0
+2024/08/14 18:34:30 [notice] 1#1: built by gcc 13.2.1 20231014 (Alpine 13.2.1_git20231014) 
+2024/08/14 18:34:30 [notice] 1#1: OS: Linux 5.15.153.1-microsoft-standard-WSL2
+2024/08/14 18:34:30 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/08/14 18:34:30 [notice] 1#1: start worker processes
+2024/08/14 18:34:30 [notice] 1#1: start worker process 29
+2024/08/14 18:34:30 [notice] 1#1: start worker process 30
+2024/08/14 18:34:30 [notice] 1#1: start worker process 31
+2024/08/14 18:34:30 [notice] 1#1: start worker process 32

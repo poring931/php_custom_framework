@@ -36,6 +36,6 @@ composer config --global repo.packagist composer http://packagist.org
 
 composer update --ignore-platform-req=ext-zip --ignore-platform-req=ext-exif
 
-
+Иногда докер выдает ошибку
 docker-compose run --rm composer clear-cache
 docker-compose run --rm composer install

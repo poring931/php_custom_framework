@@ -6,11 +6,11 @@ require_once BASE_PATH.'/vendor/autoload.php';
 
 use Gmo\Framework\Http\Kernel;
 use Gmo\Framework\Http\Request;
-use Gmo\Framework\Routing\Router;
 
-$router = new Router;
 $request = Request::createFromGlobals();
-$kernel = new Kernel($router);
+
+$container = require BASE_PATH.'/config/services.php';
+$kernel = $container->get(Kernel::class);
 
 $response = $kernel->handle($request);
 

@@ -7,16 +7,20 @@ use FastRoute\RouteCollector;
 use Gmo\Framework\Http\Exceptions\MethodNotAllowedException;
 use Gmo\Framework\Http\Exceptions\RouteNotFoundException;
 use Gmo\Framework\Http\Request;
+use League\Container\Container;
 
 use function FastRoute\simpleDispatcher;
 
 class Router implements RouterInterface
 {
-    public function dispatch(Request $request): array
+    private array $routes = [];
+
+    public function dispatch(Request $request, Container $container): array
     {
         [$handler, $vars] = $this->extractRouteInfo($request);
         if (is_array($handler)) {
-            [$controller, $method] = $handler;
+            [$controllerId, $method] = $handler;
+            $controller = $container->get($controllerId);
             $handler = [new $controller, $method];
         }
 
@@ -24,6 +28,11 @@ class Router implements RouterInterface
             $handler,
             $vars,
         ];
+    }
+
+    public function registerRoutes(array $routes): void
+    {
+        $this->routes = array_merge($this->routes, $routes);
     }
 
     /**
@@ -34,8 +43,7 @@ class Router implements RouterInterface
     {
         $dispatcher = simpleDispatcher(function (RouteCollector $collector) {
 
-            $routes = include BASE_PATH.'/routes/web.php';
-            foreach ($routes as $route) {
+            foreach ($this->routes as $route) {
                 $collector->addRoute(...$route);
             }
 
