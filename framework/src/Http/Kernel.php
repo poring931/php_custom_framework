@@ -5,7 +5,6 @@ namespace Gmo\Framework\Http;
 use Gmo\Framework\Http\Exceptions\HttpException;
 use Gmo\Framework\Routing\RouterInterface;
 use League\Container\Container;
-use Throwable;
 
 class Kernel
 {
@@ -26,7 +25,7 @@ class Kernel
         try {
             [$routeHandler, $vars] = $this->router->dispatch($request, $this->container);
             $response = call_user_func($routeHandler, $vars);
-        } catch (Throwable $e) {
+        } catch (\Exception $e) {
             $response = $this->createExceptionResponse($e);
         }
 

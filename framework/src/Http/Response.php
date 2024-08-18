@@ -5,7 +5,7 @@ namespace Gmo\Framework\Http;
 class Response
 {
     public function __construct(
-        private mixed $content,
+        private string $content,
         private int $status = 200,
         private array $headers = [],
     ) {
@@ -19,5 +19,12 @@ class Response
             header(sprintf('%s: %s', $name, $value));
         }
         echo $this->content;
+    }
+
+    public function setContent(mixed $content): Response
+    {
+        $this->content = $content;
+
+        return $this;
     }
 }

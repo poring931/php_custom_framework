@@ -2,4 +2,5 @@
 /vendor/
 .env
 /.docker/mysql/data
+logs
 /logs

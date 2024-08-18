@@ -5,14 +5,14 @@ namespace App\Controllers;
 use Gmo\Framework\Controller\AbstractController;
 use Gmo\Framework\Http\Response;
 
-class HomeController extends AbstractController
+class PostController extends AbstractController
 {
     public function __construct() {}
 
-    public function index(): Response
+    public function create(): Response
     {
         $a = 'asdasd12342354235trg';
 
-        return $this->render('home.html.twig', ['testParams' => $a]);
+        return $this->render('posts-create.twig', ['testParams' => $a]);
     }
 }
