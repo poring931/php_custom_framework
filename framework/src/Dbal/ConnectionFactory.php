@@ -8,14 +8,11 @@ use Doctrine\DBAL\DriverManager;
 readonly class ConnectionFactory
 {
     public function __construct(
-        private readonly string $databaseUrl
+        private readonly array $connectionParams
     ) {}
 
     public function create(): Connection
     {
-        return DriverManager::getConnection([
-            'url' => $this->databaseUrl,
-            'driver' => 'pdo_mysql',
-        ]);
+        return DriverManager::getConnection($this->connectionParams);
     }
 }

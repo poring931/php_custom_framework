@@ -6,6 +6,7 @@ use Psr\Container\ContainerInterface;
 
 class Kernel
 {
+    // docker-compose exec php php /var/www/html/console migrate
     public function __construct(
         private ContainerInterface $container,
         private Application $application

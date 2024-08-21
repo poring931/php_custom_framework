@@ -27,6 +27,7 @@ docker exec -it php /bin/bash
 #   docker-compose exec php php /var/www/laravel_activity/artisan
 
 
+docker run -it --rm --network=localhost mysql:8.0 mysql -h mysql -u user -p user_password
 
 
 composer config --global disable-tls true
@@ -39,3 +40,8 @@ composer update --ignore-platform-req=ext-zip --ignore-platform-req=ext-exif
 Иногда докер выдает ошибку
 docker-compose run --rm composer clear-cache
 docker-compose run --rm composer install
+
+docker exec -it php bash
+
+
+docker-compose exec php php /var/www/html/console migrate
